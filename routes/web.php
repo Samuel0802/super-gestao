@@ -5,9 +5,31 @@ use Illuminate\Support\Facades\Route;
 
 
 //Novo estilo de criar as rotas
-route::get('/', [\App\Http\Controllers\PrincipalController::class, 'home']);
+route::get('/', [\App\Http\Controllers\PrincipalController::class, 'home'])->name('site.index');
+route::get('/sobre', [\App\Http\Controllers\SobreNosController::class, 'SobreNos'])->name('site.sobrenos');
+route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'Contato'])->name('site.contato');
+route::get('/login', function(){ return 'Login';})->name('site.login');
 
-route::get('/sobre', [\App\Http\Controllers\SobreNosController::class, 'SobreNos']);
 
-route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'Contato']);
+//rota com acesso restrito
+Route::prefix('/app')->group(function(){
+route::get('/clientes', function(){ return 'Clientes';})->name('app.clientes');
+route::get('/fornecedores', function(){ return 'Fornecedores';})->name('app.fornecedores');
+route::get('/produto', function(){ return 'Produtos';})->name('app.produto');
+});
 
+
+//Redirecionamento de rotas
+route::get('/rota1', function(){
+    echo 'Rota 1';
+})->name('site-rota1');
+
+route::get('/rota2', function(){
+  return redirect()->route('site-rota1');
+})->name('site-rota2');
+
+
+//Rota fallback não aparecer erro quando não encontrar uma rota
+route::fallback(function(){
+  echo 'A rota acessada não existe. <a href="'.route('site.index').'">Clique aqui</a> para ir para pagina inicial';
+});

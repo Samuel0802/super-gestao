@@ -41,14 +41,14 @@
 
                         
                         <li class="nav-item">
-                            <a href="/sobre" class="nav-link align-middle px-0">
+                            <a href="{{route('site.sobrenos')}}" class="nav-link align-middle px-0">
                                 <i class="bi bi-info-square-fill"></i> <span class="ms-1 d-none d-sm-inline">Sobre </span>
                             </a>
                         </li>
 
                         
                         <li class="nav-item">
-                            <a href="/contato" class="nav-link align-middle px-0">
+                            <a href="{{route('site.contato')}}" class="nav-link align-middle px-0">
                                 <i class="bi bi-telephone-fill"></i> <span class="ms-1 d-none d-sm-inline">Contato</span>
                             </a>
                         </li>
