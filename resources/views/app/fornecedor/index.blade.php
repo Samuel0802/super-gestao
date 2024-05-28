@@ -4,22 +4,19 @@
    
 @endphp
 
-{{-- @dd($fornecedores) --}}
 
-{{-- Condição do if no blade --}}
-
+@isset($fornecedores)
 Fornecedor: {{ $fornecedores[0]['nome']}}
- <br>
+<br>
 
- Status: {{ $fornecedores[0]['status']}} 
- <br>
+Status: {{ $fornecedores[0]['status']}} 
+<br>
 
- @if ($fornecedores[0]['status'] == 'N')
-  <p>Fornecedor Inativo</p>
+ @isset($fornecedores[0]['CNPJ'])
+ Cnpj: {{$fornecedores[0]['CNPJ']}}
+ @endisset
 
-{{-- Se o retorno da condição for false  --}}
-  @unless ($fornecedores[0]['status'] == 'S') 
-  <p>Fornecedor Inativo</p>
-  @endunless
+@endisset
+
      
-  @endif
+  
