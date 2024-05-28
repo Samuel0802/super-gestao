@@ -14,7 +14,10 @@ Fornecedor: {{ $fornecedores[0]['nome']}}
 Status: {{ $fornecedores[0]['status']}} 
 <br>
 
- CNPJ: {{ $fornecedores[1]['CNPJ'] ?? 'Dado não foi preenchido'}}
+ CNPJ: {{ $fornecedores[0]['CNPJ'] ?? 'Dado não foi preenchido'}}
+ <br>
+ 
+ RG: {{$fornecedores[1]['RG'] ?? 'Rg não foi preenchido!'}}
  {{-- $variavel testada não estiver definida
     ou
     $variavel testada possuir o valor null
