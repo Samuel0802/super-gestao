@@ -1,7 +1,9 @@
 <h3>Fornecedor</h3>
 
 @php
-   
+  /*
+ if(empty($varaivel)) :Se variavel possui algo valor
+*/ 
 @endphp
 
 
@@ -14,6 +16,12 @@ Status: {{ $fornecedores[0]['status']}}
 
  @isset($fornecedores[0]['CNPJ'])
  Cnpj: {{$fornecedores[0]['CNPJ']}}
+
+  @empty($fornecedores[0]['CNPJ'])
+   - vazio
+
+    @endempty
+    
  @endisset
 
 @endisset
