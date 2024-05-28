@@ -7,13 +7,19 @@
 {{-- @dd($fornecedores) --}}
 
 {{-- Condição do if no blade --}}
-@if(count ($fornecedores) > 0 && count($fornecedores) < 10)
-  <h3>Existe Alguns fornecedores cadastrado</h3>
-    
-@elseif (count($fornecedores) > 10 ) 
- <h3>Existe varios fornecedores cadastrado</h3>
 
- @else
- <h3>Ainda não existem fornecedores cadastrado</h3>
+Fornecedor: {{ $fornecedores[0]['nome']}}
+ <br>
 
- @endif
+ Status: {{ $fornecedores[0]['status']}} 
+ <br>
+
+ @if ($fornecedores[0]['status'] == 'N')
+  <p>Fornecedor Inativo</p>
+
+{{-- Se o retorno da condição for false  --}}
+  @unless ($fornecedores[0]['status'] == 'S') 
+  <p>Fornecedor Inativo</p>
+  @endunless
+     
+  @endif
