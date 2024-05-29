@@ -11,13 +11,16 @@
 
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet" />
 
     {{-- Dependencia toastr função de alert css --}}
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <meta name="theme-color" content="#712cf9">
     <!-- Custom styles for this template -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
-    <title>SUPER GESTÃO</title>
+   
+    {{-- titulo dinamico --}}
+    <title>Super Gestão @yield('titulo')</title>
 </head>
 
 <body>
@@ -27,14 +30,14 @@
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <a href="/"
                         class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">SUPER GESTÃO SISTEMA</span>
+                        <img src="{{asset('img/logo.png')}}">
                     </a>
 
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
                         id="menu">
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link align-middle px-0">
+                            <a href="{{route('site.index')}}" class="nav-link align-middle px-0">
                                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                             </a>
                         </li>
