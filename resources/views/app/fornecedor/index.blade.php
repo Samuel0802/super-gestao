@@ -9,8 +9,8 @@
 
 @isset($fornecedores)
 
-{{-- Foreach ele faz uma copia do array original pra não efetar o array original  --}}
-@foreach ($fornecedores as $indice => $fornecedor)
+{{-- Foreelse:  $fornecedores estiver vazio poderá ser jogado ao @empty  --}}
+@forelse ($fornecedores as $indice => $fornecedor)
   
 Fornecedor: {{  $fornecedor['nome']}}
 <br>
@@ -32,7 +32,9 @@ Status: {{  $fornecedor['status']}}
  telefone: ({{ $fornecedor['telefone'] ?? ''}}) {{ $fornecedor['telefone'] ?? ''}} 
  <br>
  <hr>
- @endforeach
+ @empty
+  Não existem fornecedores cadastrado
+ @endforelse
 
 @endisset
 

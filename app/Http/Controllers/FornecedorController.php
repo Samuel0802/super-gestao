@@ -38,6 +38,8 @@ class FornecedorController extends Controller
 
  ];
 
+ 
+
 
     return view('app.fornecedor.index', compact('fornecedores')); //compact: é utilizavel pra renderizar uma variavel no front
  }
