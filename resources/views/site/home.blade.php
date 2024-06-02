@@ -37,7 +37,7 @@
                         id="menu">
 
                         <li class="nav-item">
-                            <a href="{{route('site.index')}}" class="nav-link align-middle px-0">
+                            <a href="{{route('site.home')}}" class="nav-link align-middle px-0">
                                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                             </a>
                         </li>
@@ -155,7 +155,8 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
             @yield('content') {{-- content renderizar tudo o que eu  quero renderizar --}}
-             
+            
+            @include('components.home')
         </main>
 
         </div>

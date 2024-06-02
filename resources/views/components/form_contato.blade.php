@@ -1,20 +1,24 @@
+
+{{--$slot =  Renderizar conteudo html que estava formulario dentro do components  --}}
+{{$slot}} 
+
 <form action="{{ route('site.contato') }}" method="post">
     @csrf
 
-    <input type="text" placeholder="Nome" name="nome" class="borda-preta">
+    <input type="text" placeholder="Nome" name="nome" class="{{$classe}}">
     <br>
-    <input type="text" placeholder="Telefone" name="telefone" class="borda-preta">
+    <input type="text" placeholder="Telefone" name="telefone" class="{{$classe}}">
     <br>
-    <input type="text" placeholder="E-mail" name="email" class="borda-preta">
+    <input type="text" placeholder="E-mail" name="email" class="{{$classe}}">
     <br>
-    <select class="borda-preta" name="motivo">
+    <select class="{{$classe}}" name="motivo">
         <option value="">Qual o motivo do contato?</option>
         <option value="duvida">Dúvida</option>
         <option value="elogio">Elogio</option>
         <option value="reclamacao">Reclamação</option>
     </select>
     <br>
-    <textarea name="mgs" class="borda-preta">Preencha aqui a sua mensagem</textarea>
+    <textarea name="mgs" class="{{$classe}}">Preencha aqui a sua mensagem</textarea>
     <br>
-    <button type="submit" class="borda-preta">ENVIAR</button>
+    <button type="submit" class="{{$classe}}">ENVIAR</button>
 </form>
