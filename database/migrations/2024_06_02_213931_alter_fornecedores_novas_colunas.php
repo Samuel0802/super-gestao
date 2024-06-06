@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-  
+
     public function up(): void
     {
         //criar uma nova tabela
@@ -18,9 +18,14 @@ return new class extends Migration
         });
     }
 
-  
+// metodo Down: defazer tudo que foi feito pelo metodo up de acrescentar tabela
     public function down(): void
     {
-      
+        Schema::table('fornecedores_tablet', function (Blueprint $table) {
+            //para remover colunas
+            // $table->$table->dropColumn('uf');
+            // $table->$table->dropColumn('email');
+          $table->$table->dropColumn(['uf','email']);
+          });
     }
 };
