@@ -12,7 +12,7 @@ return new class extends Migration
         //criar uma nova tabela
         // table: seleciona uma tabela já existente no banco
         // E criar mais colunas php artisan migrate
-        Schema::table('fornecedores_tablet', function (Blueprint $table) {
+        Schema::table('fornecedores', function (Blueprint $table) {
           $table->string('uf',2);
           $table->string('email',150);
         });
@@ -21,7 +21,7 @@ return new class extends Migration
 // metodo Down: defazer tudo que foi feito pelo metodo up de acrescentar tabela
     public function down(): void
     {
-        Schema::table('fornecedores_tablet', function (Blueprint $table) {
+        Schema::table('fornecedores', function (Blueprint $table) {
             //para remover colunas
             // $table->$table->dropColumn('uf');
             // $table->$table->dropColumn('email');
