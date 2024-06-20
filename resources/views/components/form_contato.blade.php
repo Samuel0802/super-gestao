@@ -5,11 +5,11 @@
 <form action="{{ route('site.contato') }}" method="post">
     @csrf
 
-    <input type="text" placeholder="Nome" name="nome" class="{{$classe}}">
+    <input type="text" placeholder="Nome" value="{{old('nome') }}" name="nome" class="{{$classe}}">
     <br>
-    <input type="text" placeholder="Telefone" name="telefone" class="{{$classe}}">
+    <input type="text" placeholder="Telefone" value="{{old('telefone') }}"   name="telefone" class="{{$classe}}">
     <br>
-    <input type="text" placeholder="E-mail" name="email" class="{{$classe}}">
+    <input type="text" placeholder="E-mail" value="{{old('email') }}" name="email" class="{{$classe}}">
     <br>
     <select class="{{$classe}}" name="motivo">
         <option value="">Qual o motivo do contato?</option>
@@ -18,7 +18,9 @@
         <option value="reclamacao">Reclamação</option>
     </select>
     <br>
-    <textarea name="mgs" class="{{$classe}}">Preencha aqui a sua mensagem</textarea>
+    <textarea name="descricao"  class="{{$classe}}">{{ (old('descricao') != '') ? old('descricao') : 'Preencha aqui sua mensagem'}}
+
+    </textarea>
     <br>
     <button type="submit" class="{{$classe}}">ENVIAR</button>
 </form>
