@@ -16,11 +16,11 @@ class ContatoController extends Controller
 
 //Realizar a validação dos dados Formulario recebidos do request
 $request->validate([
-    'nome' => 'required',
+    'nome' => 'required|min:3|max:40', //nomes com no minimo 3 caracteres e no maximo 40
     'telefone' => 'required',
     'email' => 'required',
     'motivo_contato' => 'required',
-    'descricao' => 'required',
+    'descricao' => 'required|max:2000',
 
 ]);
 
