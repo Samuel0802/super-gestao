@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 route::get('/', [\App\Http\Controllers\PrincipalController::class, 'Home'])->name('site.home');
 route::get('/sobre', [\App\Http\Controllers\SobreNosController::class, 'SobreNos'])->name('site.sobrenos');
 route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'Contato'])->name('site.contato');
-route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'Contato'])->name('site.contato');
+route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'Salvar'])->name('site.contato');
 route::get('/login', function(){ return 'Login';})->name('site.login');
 
 

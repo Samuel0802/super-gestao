@@ -1,6 +1,6 @@
 
 {{--$slot =  Renderizar conteudo html que estava formulario dentro do components  --}}
-{{$slot}} 
+{{$slot}}
 
 <form action="{{ route('site.contato') }}" method="post">
     @csrf
