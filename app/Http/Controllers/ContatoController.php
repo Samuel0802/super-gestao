@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\SiteContato;
+use App\Models\MotivoContato;
 
 use Illuminate\Http\Request;
 
@@ -9,7 +10,10 @@ class ContatoController extends Controller
 {
  public function Contato(Request $request){
 
-   return view('site.contato');
+
+    $motivo_contatos =  MotivoContato::all();//Recuperar todos os dados
+
+    return view('site.contato',['motivo_contatos' => $motivo_contatos]);//compact na view
  }
 
  public function Salvar(Request $request){
