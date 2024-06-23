@@ -25,8 +25,21 @@ $request->validate([
     'email' => 'email|unique:site_contatos', //email seja apenas valores unico da tabela site_contatos
     'motivo_contatos_id' => 'required',
     'mensagem' => 'required|max:2000',
+],
+//Array campos de validação pra visualizar
+[
 
-]);
+    'nome.min' => 'O compo nome precisa ter no mínimo 3 caracteres',
+    'nome.max' => 'O campo nome deve ter no máximo 40 caracteres',
+    'email.unique' => 'O email informado já está em uso',
+
+    'required' => 'O Campo :attribute deve ser Preenchido',
+
+    'email.email' => 'O email informado não é valido',
+    'mensagem.max' => 'A mensagem deve ter no máximo 2000 caracteres'
+]
+
+);
 
   SiteContato::create($request->all());
   return redirect()->route('site.home');
