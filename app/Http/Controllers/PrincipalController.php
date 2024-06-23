@@ -9,7 +9,7 @@ class PrincipalController extends Controller
 {
     public function Home(){
 
-       $motivo_contatos =  MotivoContato::all();
+       $motivo_contatos =  MotivoContato::all();//Recuperar todos os registro do banco no formato de objeto
 
     //    dd($motivo_contatos);
 

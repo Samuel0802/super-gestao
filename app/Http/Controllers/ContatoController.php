@@ -11,7 +11,7 @@ class ContatoController extends Controller
  public function Contato(Request $request){
 
 
-    $motivo_contatos =  MotivoContato::all();//Recuperar todos os dados
+    $motivo_contatos =  MotivoContato::all();//Recuperar todos os registro do banco no formato de objeto no select do form
 
     return view('site.contato',['motivo_contatos' => $motivo_contatos]);//compact na view
  }
