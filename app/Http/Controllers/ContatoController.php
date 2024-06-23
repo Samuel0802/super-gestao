@@ -22,14 +22,14 @@ class ContatoController extends Controller
 $request->validate([
     'nome' => 'required|min:3|max:40', //nomes com no minimo 3 caracteres e no maximo 40
     'telefone' => 'required',
-    'email' => 'email',
-    'motivo_contato_id' => 'required',
+    'email' => 'email|unique:site_contatos', //email seja apenas valores unico da tabela site_contatos
+    'motivo_contatos_id' => 'required',
     'mensagem' => 'required|max:2000',
 
 ]);
 
   SiteContato::create($request->all());
-  return redirect()->route('site.index');
+  return redirect()->route('site.home');
  }
 
 
