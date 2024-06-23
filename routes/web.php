@@ -2,14 +2,15 @@
 
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\PrincipalController;
+use App\Http\Middleware\LogAcessoMiddleware;
 
 use Illuminate\Support\Facades\Route;
 
 
 //Novo estilo de criar as rotas
-route::get('/', [\App\Http\Controllers\PrincipalController::class, 'Home'])->name('site.home');
+route::middleware(LogAcessoMiddleware::class)->get('/', [\App\Http\Controllers\PrincipalController::class, 'Home'])->name('site.home');
 route::get('/sobre', [\App\Http\Controllers\SobreNosController::class, 'SobreNos'])->name('site.sobrenos');
-route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'Contato'])->name('site.contato');
+route::middleware(LogAcessoMiddleware::class)->get('/contato', [\App\Http\Controllers\ContatoController::class, 'Contato'])->name('site.contato');
 route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'Salvar'])->name('site.contato');
 route::get('/login', function(){ return 'Login';})->name('site.login');
 
