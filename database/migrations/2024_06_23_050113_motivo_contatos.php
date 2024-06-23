@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
+//Tabela aonde vai gravar os dados do motivo_contato
     public function up()
     {
         Schema::create('motivo_contatos', function (Blueprint $table) {
