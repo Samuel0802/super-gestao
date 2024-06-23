@@ -4,13 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\MotivoContato;
 
 class MotivoContato extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'motivo_contato'
-    ];
+     //
+     protected $fillable = ['motivo_contato'];
 }

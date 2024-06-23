@@ -4,9 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AjusteProdutosFiliais extends Migration
+return new class extends Migration
 {
-     //Adicionando chaves estrangeiras (Relacionamento muito para muitos)
+
     public function up()
     {
         //criando a tabela filiais
@@ -51,4 +51,4 @@ class AjusteProdutosFiliais extends Migration
 
         Schema::dropIfExists('filiais');
     }
-}
+};
