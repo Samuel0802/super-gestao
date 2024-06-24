@@ -8,15 +8,16 @@ use Illuminate\Support\Facades\Route;
 
 
 //Novo estilo de criar as rotas
-route::middleware(LogAcessoMiddleware::class)->get('/', [\App\Http\Controllers\PrincipalController::class, 'Home'])->name('site.home');
+route::middleware('log.acesso')->get('/', [\App\Http\Controllers\PrincipalController::class, 'Home'])->name('site.home');
 route::get('/sobre', [\App\Http\Controllers\SobreNosController::class, 'SobreNos'])->name('site.sobrenos');
-route::middleware(LogAcessoMiddleware::class)->get('/contato', [\App\Http\Controllers\ContatoController::class, 'Contato'])->name('site.contato');
+route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'Contato'])->name('site.contato');
 route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'Salvar'])->name('site.contato');
 route::get('/login', function(){ return 'Login';})->name('site.login');
 
 
 //rota com acesso restrito
-Route::prefix('/app')->group(function(){
+Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(function(){
+    //middleware: 1 validação se usuario esta autenticado nomes passado pelo kernel
 route::get('/clientes', function(){ return 'Clientes';})->name('app.clientes');
 route::get('/fornecedores', [FornecedorController::class, 'index'])->name('app.fornecedores');
 route::get('/produto', function(){ return 'Produtos';})->name('app.produto');

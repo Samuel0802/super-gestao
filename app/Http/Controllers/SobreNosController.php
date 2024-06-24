@@ -10,8 +10,10 @@ class SobreNosController extends Controller
 
 //Passando Middleware passando no construtor do controller
 {
+
+// Implementando middlewares no método construtor dos controllers
  public function __construct(){
-    $this->middleware(LogAcessoMiddleware::class);
+    $this->middleware('log.acesso');
  }
 
   public function SobreNos(){

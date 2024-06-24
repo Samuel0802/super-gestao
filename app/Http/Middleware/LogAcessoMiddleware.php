@@ -16,13 +16,15 @@ class LogAcessoMiddleware
         //  dd($request);
 
         $ip = $request->server->get('REMOTE_ADDR');
+
         $sistema = $request->server->get('HTTP_SEC_CH_UA_PLATFORM');
+
         $rota = $request->getRequestUri();
 
-        // return $next($request);
         //Criando a Log no banco de dados
     LogAcessos::create(['log' => "IP $ip requisitou a rota $rota no sistema $sistema"]);
-        // return Response('Chegamos no Middleware');
           return $next($request);
+
+        // return Response('Passando pela Middleware log.acesso');
     }
 }
