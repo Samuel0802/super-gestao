@@ -3,6 +3,7 @@
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Middleware\LogAcessoMiddleware;
+use App\Http\Controllers\LoginController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -12,7 +13,8 @@ route::middleware('log.acesso')->get('/', [\App\Http\Controllers\PrincipalContro
 route::get('/sobre', [\App\Http\Controllers\SobreNosController::class, 'SobreNos'])->name('site.sobrenos');
 route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'Contato'])->name('site.contato');
 route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'Salvar'])->name('site.contato');
-route::get('/login', function(){ return 'Login';})->name('site.login');
+route::get('/login',[LoginController::class, 'Login'])->name('site.login');
+route::post('/login',[LoginController::class, 'Autenticar'])->name('site.login');
 
 
 //rota com acesso restrito
