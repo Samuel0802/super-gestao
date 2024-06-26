@@ -27,7 +27,7 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
 route::get('/home', [HomeController::class, 'Index'])->name('app.home');
 route::get('/sair', [LoginController::class, 'Sair'])->name('app.sair');
 route::get('/cliente', [ClienteController::class, 'Index'])->name('app.cliente');
-route::get('/fornecedore', [FornecedorController::class, 'index'])->name('app.fornecedore');
+route::get('/fornecedore', [FornecedorController::class, 'index'])->name('app.fornecedor');
 route::get('/produto', [ProdutoController::class, 'Index'])->name('app.produto');
 });
 

@@ -56,7 +56,8 @@ if(isset($usuario->nome)) {
    $_SESSION['nome'] = $usuario->nome;
    $_SESSION['email'] = $usuario->email;
 
-   return redirect()->route('app.cliente');
+//Após auteticação
+   return redirect()->route('app.home');
 } else {
     return redirect()->route('site.login', ['erro' => 1]);
 }
@@ -64,7 +65,9 @@ if(isset($usuario->nome)) {
  }
 
  public function Sair(){
-echo 'sair';
-}
+  session_destroy();
 
+  return redirect()->route('site.home');
+
+ }
 }
