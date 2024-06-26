@@ -1,5 +1,5 @@
 <div class="conteudo-destaque">
-        
+
     <div class="esquerda">
         <div class="informacoes">
             <h1>Sistema Super Gestão</h1>
@@ -24,7 +24,7 @@
             <h1>Contato</h1>
             <p>Caso tenha qualquer dúvida por favor entre em contato com nossa equipe pelo formulário abaixo.<p>
           {{-- component  visualizar mesmo formulário e demais view--}}
-          @component('components.form_contato', ['classe' => 'borda-branca']) 
+          @component('components.form_contato', ['classe' => 'borda-branca', 'motivo_contatos' => $motivo_contatos])
        {{-- paramentos de classe do css --}}
           <p>A nossa equipe analisará a sua mensagem e retornaremos o mais brevemente possível!</p>
 

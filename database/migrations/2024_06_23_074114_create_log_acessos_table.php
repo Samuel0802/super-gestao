@@ -6,23 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-  
+
     public function up(): void
     {
-        Schema::create('site_contatos', function (Blueprint $table) {
+        Schema::create('log_acessos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome',100);
-            $table->string('telefone',50);
-            $table->string('email',80);
-            $table->integer('motivo_contato');
-            $table->text('descricao');
+            $table->string('log', 200);
             $table->timestamps();
         });
     }
 
-
     public function down(): void
     {
-        Schema::dropIfExists('site_contatos');
+        Schema::dropIfExists('log_acessos');
     }
 };

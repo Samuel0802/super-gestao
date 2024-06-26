@@ -18,7 +18,7 @@
     <meta name="theme-color" content="#712cf9">
     <!-- Custom styles for this template -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
-   
+
     {{-- titulo dinamico --}}
     <title>Super Gestão @yield('titulo')</title>
 </head>
@@ -38,21 +38,21 @@
 
                         <li class="nav-item">
                             <a href="{{route('site.home')}}" class="nav-link align-middle px-0">
-                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline texto-branco">Home</span>
                             </a>
                         </li>
 
-                        
+
                         <li class="nav-item">
                             <a href="{{route('site.sobrenos')}}" class="nav-link align-middle px-0">
-                                <i class="bi bi-info-square-fill"></i> <span class="ms-1 d-none d-sm-inline">Sobre </span>
+                                <i class="bi bi-info-square-fill"></i> <span class="ms-1 d-none d-sm-inline texto-branco">Sobre </span>
                             </a>
                         </li>
 
-                        
+
                         <li class="nav-item">
                             <a href="{{route('site.contato')}}" class="nav-link align-middle px-0">
-                                <i class="bi bi-telephone-fill"></i> <span class="ms-1 d-none d-sm-inline">Contato</span>
+                                <i class="bi bi-telephone-fill"></i> <span class="ms-1 d-none d-sm-inline texto-branco">Contato</span>
                             </a>
                         </li>
 
@@ -93,7 +93,7 @@
                                 </li>
                             </ul>
                         </li> --}}
-{{-- 
+{{--
                         <li>
                             <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
@@ -150,12 +150,12 @@
 
                 </div>
             </div>
-            
+
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
             @yield('content') {{-- content renderizar tudo o que eu  quero renderizar --}}
-            
+
             @include('components.home')
         </main>
 
@@ -171,7 +171,7 @@
      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
      <script src="/js/dashboard.js"></script>
-     <script src="/js/color-modes.js"></script> 
+     <script src="/js/color-modes.js"></script>
 </body>
 
 </html>
