@@ -7,12 +7,19 @@ use App\Models\User;
 
 class LoginController extends Controller
 {
-  public function Login(){
-    return view('site.login');
+  public function Login(Request $request){
+
+ //Validando se usuario existe ou não
+    $erro = ' ';
+    if($request->get('erro') == 1){
+        $erro = 'Usuário ou senha não existe';
+    }
+    return view('site.login', ['titulo' => 'login', 'erro' => $erro]);
   }
 
-  public function Autenticar(Request $request){
 
+
+  public function Autenticar(Request $request){
      //Regras de validação
      $regras = [
         'email' => 'email',
@@ -30,26 +37,34 @@ class LoginController extends Controller
   //Fim da validação dos campo
 
 
-  //recuperando os parametros do formulario login
+  //recuperando os parametros cadastro dos users para formulario login
   $email = $request->get('email');
   $senha = $request->get('senha');
 
   echo "Usuario: $email | Senha: $senha";
   echo '<br>';
 
-  //Iniciar o Model User
-$user = new User();
 
+ //Iniciar o Model User
+$user = new User();
 //Consulta no banco login
 $usuario= $user->where('email', $email)->where('senha', $senha)->get()->first();
 
- //Verificando o banco se Usuario existe
+ //Verificando o banco se Usuario existe e jogando para suas devidas rotas
 if(isset($usuario->nome)) {
-    echo 'Usuário existe';
+  session_start();
+   $_SESSION['nome'] = $usuario->nome;
+   $_SESSION['email'] = $usuario->email;
+
+   return redirect()->route('app.cliente');
 } else {
-    echo 'Usuário não existe';
+    return redirect()->route('site.login', ['erro' => 1]);
 }
 
-
  }
+
+ public function Sair(){
+echo 'sair';
+}
+
 }

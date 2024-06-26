@@ -60,7 +60,9 @@
             	<input type="submit" class="btn" value="ENTRAR">
             </form>
         </div>
+        {{ isset($erro) && $erro != '' ? $erro : '' }}
     </div>
+
     @yield('script')
     <script src="/js/login.js"></script>
 </body>
